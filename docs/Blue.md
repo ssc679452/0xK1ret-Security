@@ -46,7 +46,7 @@ Once set, all we need to do is type `exploit` and hit enter. . .
   
 Success! We have landed a shell on the machine. 
   
-## Phase 4: Maintaining access & privlege escalation
+## Phase 4: Maintaining access & privilege escalation
 
 Now that we have a shell on the machine, we can check our access and collect our loot. Given the nature of EternalBlue, we do not need to perform any type of privlege escalation as we are already running as `nt authority\system`
 
