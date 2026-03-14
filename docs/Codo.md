@@ -18,26 +18,26 @@ While the more detailed scan is running, I opted to take some time to check out 
   
 ![Image of the webpage](assets/codo/enumeration-2.png)  
   
-We can see that there a few interesting directories that we can explore. I begin by checking out `sys`. After combing through these files, there was no juicy information. Moving onto `cache`, and `sites` the same holds true.  
+We can see that there a few interesting directories that we can explore. I begin by checking out `sys`. After combing through these files, there was no useful information to further our objective of landing a foothold. The same hold true for directories `cache` and `sites`.  
   
 ![Gobuster Scan](assets/codo/enumeration-3.png)  
 ![Image of the sys](assets/codo/enumeration-4.png)  
 ![Image of the cache](assets/codo/enumeration-5.png)  
 ![Image of the sites](assets/codo/enumeration-6.png)  
   
-Finally, we get to `admin`. I checked the source to see if I could gather a version or build number, with no luck.  
+Finally, we get to `admin`. Reviewing the source to see if I could gather a version or build number, I unfortunately have no luck.  
   
 ![Image of the login page for Codoforums](assets/codo/enumeration-7.png)  
   
 ![Image of the page source for the login page](assets/codo/enumeration-8.png)  
   
-To our luck, after trying a few basic common passwords manually - `admin:admin` appears to get us into the login! From here we are able to determine the version `V.5.1.105`.  
+After attempting a few basic username/passwords manually - `admin:admin` appears to get us into the login. From here we are able to determine the version CodoForum version is `V.5.1.105`.  
   
 ![Image of the dashboard and version number](assets/codo/enumeration-9.png)  
 
 ## Phase 3: Vulnerability verification & Exploitation  
   
-In the terminal, I check to see if searchsploit has any known exploits - which it does! `CodoForum v5.1 - Remote Code Execution (RCE)` exists - so I opt to try it out and make a copy.  
+In the terminal, I check to see if searchsploit has any known exploits - and it does! `CodoForum v5.1 - Remote Code Execution (RCE)` exists - so I opt to try it out and make a copy.  
 ![Searchsploit](assets/codo/enumeration-10.png)  
   
 Reviewing the code, it seems pretty straight forward - it takes arguments in the form of a `target-url`, `username`, `password`, `listener-ip` and `port`.  
