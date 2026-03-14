@@ -1,4 +1,4 @@
-# Machine info
+# Blue Writeup
 **Name:** Blue  
 **OS:** Windows  
 **Difficulty:**  Easy  
